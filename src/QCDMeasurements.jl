@@ -16,6 +16,7 @@ export Plaquette_measurement, measure, get_value, get_string
 export Polyakov_measurement
 export Pion_correlator_measurement
 export Chiral_condensate_measurement
+export Diquark_condensate_measurement
 export Energy_density_measurement
 export Correlation_measurement
 export Topological_charge_measurement
