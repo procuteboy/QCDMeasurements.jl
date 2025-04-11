@@ -121,6 +121,29 @@ Base.@kwdef mutable struct ChiralCondensate_parameters <: Measurement_parameters
     #smearing::Smearing_parameters = Stout_parameters()
 end
 
+Base.@kwdef mutable struct DiquarkCondensate_parameters <: Measurement_parameters
+    #common::Measurement_common_parameters = Measurement_common_parameters()
+    methodname::String = "Diquark_condensate"
+    measure_every::Int64 = 10
+    fermiontype::String = "Staggered"
+    Nf::Int64 = 4
+    eps::Float64 = 1e-19
+    mass::Float64 = 0.5
+    MaxCGstep::Int64 = 3000
+    smearing_for_fermion::String = "nothing"
+
+    stout_numlayers::Int64 = 0#Union{Nothing,Int64} = nothing
+    stout_ρ::Vector{Float64} = zeros(1)#Vector{Float64}(undef, 1)#Union{Nothing,Array{Float64,1}} = nothing
+    stout_loops::Vector{String} = [""] #Vector{String}(undef, 1)#Union{Nothing,Array{String,1}} = nothing
+    #stout_numlayers::Union{Nothing,Int64} = nothing
+    #stout_ρ::Union{Nothing,Array{Float64,1}} = nothing
+    #stout_loops::Union{Nothing,Array{String,1}} = nothing
+    verbose_level::Int64 = 2
+    printvalues::Bool = true
+    Nr = 10
+    #smearing::Smearing_parameters = Stout_parameters()
+end
+
 Base.@kwdef mutable struct Energy_density_parameters <: Measurement_parameters
     methodname::String = "Energy_density"
     measure_every::Int64 = 10
