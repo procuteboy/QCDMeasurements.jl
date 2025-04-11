@@ -1,5 +1,21 @@
 using LinearAlgebra
+# 定义 Pauli 矩阵
+σ₁ = [0 1; 1 0]
+σ₂ = [0 -im; im 0]
+σ₃ = [1 0; 0 -1]
+I₂ = Matrix(I, 2, 2)
 
+# 定义 Dirac 伽马矩阵
+γ⁰ = [I₂ zeros(2, 2); zeros(2, 2) -I₂]
+γ¹ = [zeros(2, 2) σ₁; -σ₁ zeros(2, 2)]
+γ² = [zeros(2, 2) σ₂; -σ₂ zeros(2, 2)]
+γ³ = [zeros(2, 2) σ₃; -σ₃ zeros(2, 2)]
+
+# 定义 γ⁵ 矩阵
+γ⁵ = im * γ⁰ * γ¹ * γ² * γ³
+
+# 定义电荷共轭矩阵 C（Weyl 表象下的一种常见形式）
+C = [zeros(2, 2) -σ₂; σ₂ zeros(2, 2)]
 # 定义 Diquark_condensate_measurement 结构体
 mutable struct Diquark_condensate_measurement{Dim,TG,TD,TF,TF_vec,TCov} <: AbstractMeasurement
     filename::Union{Nothing,String}
