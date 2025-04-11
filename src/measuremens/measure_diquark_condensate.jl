@@ -261,9 +261,7 @@ function measure(
     return output
 end
 
-# 计算二夸克凝聚的函数，需要根据具体物理定义实现
-function calculate_diquark(p)
-    # 这里需要根据二夸克凝聚的具体定义实现计算逻辑
-    # 例如，可能涉及到费米子场的张量积等操作
-    return 0.0 
-end    
+# 计算二夸克凝聚的函数，根据表达式 \(\psi^T C \gamma_5 \psi\) 实现
+function calculate_diquark(ψ)
+    return ψ' * C * γ⁵ * ψ
+end     
